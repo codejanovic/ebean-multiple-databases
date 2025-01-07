@@ -11,22 +11,34 @@ services:
       - "8432:5432"
 
   ro1-db:
-    image: ghusta/postgres-world-db:2.12
+    image: postgres:17.2-alpine3.21
     container_name: ro1-db
     restart: unless-stopped
+    environment:
+      - POSTGRES_USER=ro1
+      - POSTGRES_PASSWORD=ro1
+      - POSTGRES_DB=ro1
     ports:
       - "8433:5432"
 
   ro2-db:
-    image: ghusta/postgres-world-db:2.12
+    image: postgres:17.2-alpine3.21
     container_name: ro2-db
     restart: unless-stopped
+    environment:
+      - POSTGRES_USER=ro2
+      - POSTGRES_PASSWORD=ro2
+      - POSTGRES_DB=ro2
     ports:
       - "8434:5432"
 
   ro3-db:
-    image: ghusta/postgres-world-db:2.12
+    image: postgres:17.2-alpine3.21
     container_name: ro3-db
     restart: unless-stopped
+    environment:
+      - POSTGRES_USER=ro3
+      - POSTGRES_PASSWORD=ro3
+      - POSTGRES_DB=ro3
     ports:
       - "8435:5432"
