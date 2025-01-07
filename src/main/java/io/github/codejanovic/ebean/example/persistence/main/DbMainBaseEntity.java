@@ -9,7 +9,7 @@ import jakarta.persistence.Version;
 
 import java.time.Instant;
 
-@DbName("main")
+@DbName("db")
 @MappedSuperclass
 public class DbMainBaseEntity extends Model {
     @Version

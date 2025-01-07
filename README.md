@@ -16,6 +16,19 @@ Although the readonly databases contain sample tables & data, for the sake of th
 - DbRo2City is referencing "ro1_city"
 - DbRo3City is referencing "ro1_city"
 
+# Misconfiguration
+It looks like i had one misconfiguration going on, which is defining the default datasource to be "main"...
+```properties
+...
+datasource.default=main
+...
+```
+
+... BUT not having a matching `@DbName("main")` mapped to a superclass. 
+Instead the superclass had a non existing datasource defined `@DbName("db")`
+
+Based on this, generating migrations and running the application will generate create statements for every Entity defined instead of only for the main one and also migrate these migrations to every database
+
 # Generating Migration
 Running `GenerateDbMigration.java` will generate the following `1.0__initial.sql` for me:
 
