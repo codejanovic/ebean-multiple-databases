@@ -1,0 +1,32 @@
+services:
+  main-db:
+    image: postgres:17.2-alpine3.21
+    container_name: main-db
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=main
+      - POSTGRES_PASSWORD=main
+      - POSTGRES_DB=main
+    ports:
+      - "8432:5432"
+
+  ro1-db:
+    image: ghusta/postgres-world-db:2.12
+    container_name: ro1-db
+    restart: unless-stopped
+    ports:
+      - "8433:5432"
+
+  ro2-db:
+    image: ghusta/postgres-world-db:2.12
+    container_name: ro2-db
+    restart: unless-stopped
+    ports:
+      - "8434:5432"
+
+  ro3-db:
+    image: ghusta/postgres-world-db:2.12
+    container_name: ro3-db
+    restart: unless-stopped
+    ports:
+      - "8435:5432"
